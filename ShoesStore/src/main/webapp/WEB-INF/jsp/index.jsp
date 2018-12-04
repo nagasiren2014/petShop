@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,24 +13,19 @@
     <!-- Favicons -->
     <link href="../../resources/static/img/favicon.png" rel="icon">
     <link href="../../resources/static/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+    <link href="../../resources/static/css/style.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="../../resources/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="../../resources/static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../../resources/static/css/zabuto_calendar.css">
+
     <link rel="stylesheet" type="text/css" href="../../resources/static/lib/gritter/css/jquery.gritter.css" />
     <!-- Custom styles for this template -->
-    <link href="../../resources/static/css/style.css" rel="stylesheet">
+
     <link href="../../resources/static/css/style-responsive.css" rel="stylesheet">
     <script src="../../resources/static/lib/chart-master/Chart.js"></script>
 
-    <!-- =======================================================
-      Template Name: Dashio
-      Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-      Author: TemplateMag.com
-      License: https://templatemag.com/license/
-    ======================================================= -->
+
 </head>
 
 <body>
@@ -52,7 +48,7 @@
         </div>
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><a class="logout" href="/">Logout</a></li>
             </ul>
         </div>
     </header>
@@ -66,7 +62,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <p class="centered"><a href="profile.html"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-                <h5 class="centered">Tài Ngô</h5>
+                <h5 class="centered">${index.id}</h5>
 
 
 
@@ -91,28 +87,35 @@
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                <c:forEach items="${bossList}" var="item">
+                    <div class="col-xs-3">
+                        <!----------- PRODUCT CARD ----------------->
+                        <div class="card" style="margin-top: 1em; width: 250px; height: 350px">
+                            <img class="card-img-top" src="../../resources/static/img/bossImg/${item.idboss}.jpg"  alt="Card image" style="width: 250px;height: 200px">
+                            <div class="card-body" style = "padding-left: 0.77em">
+                                <h4 class="card-title">${item.name}</h4>
+                                <p class="card-text">${item.character}</p>
 
-    <!--footer start-->
-    <footer class="site-footer">
-        <div class="text-center">
-            <p>
-                &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-            </p>
-            <div class="credits">
-                <!--
-                  You are NOT allowed to delete the credit link to TemplateMag with free version.
-                  You can delete the credit link only if you bought the pro version.
-                  Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-                  Licensing information: https://templatemag.com/license/
-                -->
-                Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
+                            </div>
+                        </div>
+                        <!----------- end ----------------->
+                    </div>
+                </c:forEach>
+
             </div>
-            <a href="../../resources/template/index.html#" class="go-top">
-                <i class="fa fa-angle-up"></i>
-            </a>
-        </div>
-    </footer>
-    <!--footer end-->
+
+
+
+        </section>
+    </section>
+    <!--main content end-->
+      <!--main content end-->
+    
+    
 </section>
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="../../resources/static/lib/jquery/jquery.min.js"></script>

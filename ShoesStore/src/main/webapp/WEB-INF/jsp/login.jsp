@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <title>Nơi mua boss về hầu hạ ~</title>
+    <title>Buy a boss for a better life ~~</title>
 
     <!-- Favicons -->
     <link href="../../resources/static/img/favicon.png" rel="icon">
@@ -33,12 +33,18 @@
         <form class="form-login" action="index" method="post">
             <h2 class="form-login-heading">sign in now</h2>
             <div class="login-wrap">
-                <input type="text" class="form-control" name="id" id = "id" placeholder="User ID" autofocus>
+                <input type="text" class="form-control" name="id" placeholder="User ID" autofocus>
                 <br>
-                <input type="password" class="form-control" name="pass" id = "password" placeholder="Password">
+                <input type="password" class="form-control" name="pass"  placeholder="Password">
                 <label class="checkbox">
             <span class="pull-right">
-              <input type="checkbox" value="remember-me"> Remember me</span>
+              <input type="checkbox" value="remember-me"> Remember me
+
+            </span>
+                    <span class="float:left" >
+                        <font color = red>${loginStatus}</font>
+
+                    </span>
 
                     <span class="float:left">
 
