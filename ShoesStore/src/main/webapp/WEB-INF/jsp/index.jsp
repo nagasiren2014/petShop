@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
+<!-- DONG NAY DE GHI TIENG VIET -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!------------------------------------------->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,22 +89,45 @@
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section id="main-content">
+    <section id="main-content" style="font: ">
         <section class="wrapper">
-            <div class="row">
+            <div class="row" style="align-items: center;float: bottom">
                 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
                 <c:forEach items="${bossList}" var="item">
                     <div class="col-xs-3">
                         <!----------- PRODUCT CARD ----------------->
-                        <div class="card" style="margin-top: 1em; width: 250px; height: 350px">
-                            <img class="card-img-top" src="../../resources/static/img/bossImg/${item.idboss}.jpg"  alt="Card image" style="width: 250px;height: 200px">
-                            <div class="card-body" style = "padding-left: 0.77em">
-                                <h4 class="card-title">${item.name}</h4>
-                                <p class="card-text">${item.character}</p>
+                        <div class="card" style="margin-top: 1em; width: 250px; height: 450px">
+                            <img class="card-img-top" src="../../resources/static/img/bossImg/${item.idboss}.jpg"  alt="${item.character}" title="${item.character}" style="width: 250px;height: 200px">
+                            <div class="card-body" style="padding-top: 1em">
+                                <div class="card-block text-center">
+                                    <h4 class="card-title" >${item.name}</h4>
+                                    <p class="card-text" >
+
+                                        <div class="text-left" style="padding-left: 1em;padding-right: 1em;padding-bottom: 0em">
+                                    <p>Current Age: ${item.age}.</p>
+                                    <p>Gender: ${item.gender}.</p>
+                                    <p>Vaccine Up-to-Date: ${item.vaccine}
+                                    </p>
+                                    <p>Price:
+
+                                    <span style="color: red; font-size: 1.25em">
+                                        ${item.price}
+                                    </span>
+
+                                    </p>
+                                    <br>
+                                        </div>
+
+                                    </p>
+                                        <button type="button" class="btn btn-primary" style="margin-bottom: 1em">Edit</button>
+                                </div>
+
 
                             </div>
+
                         </div>
                         <!----------- end ----------------->
+
                     </div>
                 </c:forEach>
 

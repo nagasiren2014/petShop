@@ -46,6 +46,7 @@ public class LoginController {
                 List<boss> bossList = (List<boss>)bossRepository.findAll();
                 model.addAttribute("index",index);
                 model.addAttribute("bossList",bossList);
+
                 return "index";
             }
 
