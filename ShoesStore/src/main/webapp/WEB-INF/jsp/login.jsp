@@ -30,7 +30,7 @@
 <div id="login-page">
     <div class="container">
 
-        <form class="form-login" action="index" method="post">
+        <form class="form-login"  action ="admin" method="post">
             <h2 class="form-login-heading">sign in now</h2>
             <div class="login-wrap">
                 <input type="text" class="form-control" name="id" placeholder="User ID" autofocus>
@@ -42,7 +42,7 @@
 
             </span>
                     <span class="float:left" >
-                        <font color = red>${loginStatus}</font>
+                        <span style="color: red; ">${loginStatus}</span>
 
                     </span>
 
@@ -60,9 +60,7 @@
                     </a>
                 </div>
             </div>
-            <!-- Modal -->
 
-            <!-- modal -->
         </form>
     </div>
 </div>

@@ -31,7 +31,9 @@
 </head>
 
 <body>
+
 <section id="container">
+    <form action="add/addSuccess" method="post">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -41,7 +43,7 @@
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
         <!--logo start-->
-        <a href="../../resources/template/index.html" class="logo"><b>Boss<span>Store</span></b></a>
+        <a href="/admin" class="logo"><b>Boss<span>Store</span></b></a>
         <!--logo end-->
         <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
@@ -63,23 +65,22 @@
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <p class="centered"><a href="profile.html"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-                <h5 class="centered">${index.id}</h5>
-
-
-
-
+                <p class="centered"><a href="#"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="90"></a></p>
+                <h5 class="centered" name = "id">${index}</h5>
+                <h5 class="centered" name = "nameLogin">${nameLogin}</h5>
 
                 <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-folder"></i>
-                        <span>Show Bosses</span>
-                    </a>
+
+
+                        <input type="text" class="form-control" name="name"  aria-describedby="helpId" placeholder="Search here ..." >
+
+
+                    <a href="#" lass="dcjq-parent">
+                        <i class="fa fa-plus-square-o" aria-hidden="true" ></i>
+                        <span class="text-primary " style = "font-size: medium; color: #ff2ea9; ">Add Pet</span>
+                        <span class="dcjq-icon"></span></a>
 
                 </li>
-
-
-
             </ul>
             <!-- sidebar menu end-->
         </div>
@@ -89,58 +90,83 @@
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section id="main-content" style="font: ">
+    <section id="main-content" >
         <section class="wrapper">
-            <div class="row" style="align-items: center;float: bottom">
-                <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-                <c:forEach items="${bossList}" var="item">
-                    <div class="col-xs-3">
-                        <!----------- PRODUCT CARD ----------------->
-                        <div class="card" style="margin-top: 1em; width: 250px; height: 450px">
-                            <img class="card-img-top" src="../../resources/static/img/bossImg/${item.idboss}.jpg"  alt="${item.character}" title="${item.character}" style="width: 250px;height: 200px">
-                            <div class="card-body" style="padding-top: 1em">
-                                <div class="card-block text-center">
-                                    <h4 class="card-title" >${item.name}</h4>
-                                    <p class="card-text" >
+            <div class="col-sm-5 " style="margin-left: 5em">
+                <h2 class="text-center">Your pet's information</h2>
+                    <div class="form-group" style="margin-top: 2em">
+                            <label for="" style = "margin-top: 1em">Kind(Dog or Cat)</label>
+                            <span> 
+                                 <input type="text" name="kind"  class="form-control" placeholder="" aria-describedby="helpId">
 
-                                        <div class="text-left" style="padding-left: 1em;padding-right: 1em;padding-bottom: 0em">
-                                    <p>Current Age: ${item.age}.</p>
-                                    <p>Gender: ${item.gender}.</p>
-                                    <p>Vaccine Up-to-Date: ${item.vaccine}
-                                    </p>
-                                    <p>Price:
+                            </span>
 
-                                    <span style="color: red; font-size: 1.25em">
-                                        ${item.price}
-                                    </span>
+                        <label for="" style = "margin-top: 1em">Name</label>
+                        <span>
+                                 <input type="text" name="nem"  class="form-control" placeholder="" aria-describedby="helpId">
 
-                                    </p>
-                                    <br>
-                                        </div>
+                            </span>
 
-                                    </p>
-                                        <button type="button" class="btn btn-primary" style="margin-bottom: 1em">Edit</button>
-                                </div>
+                        <label for=""style = "margin-top: 1em">Gender</label>
+                        <span>
+                                 <input type="text" name="gender"  class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </span>
+
+                        <label for=""style = "margin-top: 1em">Character</label>
+                        <span>
+                                 <input type="text" name="character"  class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </span>
+
+                        <label for=""style = "margin-top: 1em">Vaccine Up-to-Date</label>
+                        <span>
+                                 <input type="text" name="vaccine"  class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </span>
+
+                        <label for=""style = "margin-top: 1em">Registered</label>
+                        <span>
+                                 <input type="text" name="registered"  class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </span>
+
+                        <label for=""style = "margin-top: 1em">Age</label>
+                        <span>
+                                 <input type="text" name="age" class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </span>
+
+                        <label for=""style = "margin-top: 1em">Price</label>
+                        <span>
+                                 <input type="text" name="price" class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </span>
+                            <br>
 
 
-                            </div>
 
-                        </div>
-                        <!----------- end ----------------->
+                                <button type="submit" class="btn btn-primary">ADD</button>
 
-                    </div>
-                </c:forEach>
-
+                          </div>
             </div>
 
 
-
+            <div class="col-sm-5" style="margin-left: 3em">
+                <h2 class="text-center" style="padding-top: 0.2em">Your pet's image:</h2>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <img src="#" id="imgshow" align="left" style="width: 450px;height: auto;padding-top: 3.5em">
+                <input type="file" id="imgload"  style="padding-top: 4em">
+                
+            </div>
+  
+            
         </section>
     </section>
     <!--main content end-->
-      <!--main content end-->
-    
-    
+    <!--main content end-->
+
+    </form>
 </section>
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="../../resources/static/lib/jquery/jquery.min.js"></script>
@@ -159,6 +185,20 @@
 <script src="../../resources/static/lib/zabuto_calendar.js"></script>
 
 <script type="application/javascript">
+
+
+    $('document').ready(function () {
+        $("#imgload").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imgshow').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+
     $(document).ready(function() {
         $("#date-popover").popover({
             html: true,

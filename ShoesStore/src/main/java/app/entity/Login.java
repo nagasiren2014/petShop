@@ -10,14 +10,7 @@ public class Login {
     private String id;
 
     private String password;
-
-    public Login() {
-    }
-
-    public Login(String id, String password) {
-        this.id = id;
-        this.password = password;
-    }
+    private String name;
 
     public String getId() {
         return id;
@@ -31,7 +24,24 @@ public class Login {
         return password;
     }
 
-    public void setName(String password) {
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Login(String id, String password, String name) {
+        this.id = id;
+        this.password = password;
+        this.name = name;
+    }
+
+    public Login() {
     }
 }
