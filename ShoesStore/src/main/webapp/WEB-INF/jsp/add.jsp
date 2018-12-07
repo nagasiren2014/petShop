@@ -33,7 +33,7 @@
 <body>
 
 <section id="container">
-    <form action="add/addSuccess" method="post">
+    <form action="addSuccess" enctype="multipart/form-data" method="post">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -68,17 +68,14 @@
                 <p class="centered"><a href="#"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="90"></a></p>
                 <h5 class="centered" name = "id">${index}</h5>
                 <h5 class="centered" name = "nameLogin">${nameLogin}</h5>
-
+                <br>
+                <br>
                 <li class="sub-menu">
 
-
-                        <input type="text" class="form-control" name="name"  aria-describedby="helpId" placeholder="Search here ..." >
-
-
-                    <a href="#" lass="dcjq-parent">
-                        <i class="fa fa-plus-square-o" aria-hidden="true" ></i>
-                        <span class="text-primary " style = "font-size: medium; color: #ff2ea9; ">Add Pet</span>
-                        <span class="dcjq-icon"></span></a>
+                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/';" type="button" >
+                        <i class="fa fa-remove"></i>
+                        <span>Cancel</span>
+                    </button>
 
                 </li>
             </ul>
@@ -96,8 +93,54 @@
                 <h2 class="text-center">Your pet's information</h2>
                     <div class="form-group" style="margin-top: 2em">
                             <label for="" style = "margin-top: 1em">Kind(Dog or Cat)</label>
-                            <span> 
-                                 <input type="text" name="kind"  class="form-control" placeholder="" aria-describedby="helpId">
+                            <span>
+
+                                           <div class="form-group" style="font-size: larger">
+                                                <label for=""></label>
+                                                    <select class="custom-select" name="kind" >
+                                                        <option selected>Dog</option>
+                                                        <option value="">Cat</option>
+
+                                                    </select>
+                                        </div>
+
+                            </span>
+
+                        <label for=""style = "margin-top: 1em">Gender</label>
+                        <span>
+                                  <div class="form-group" style="font-size: larger">
+                                                <label for=""></label>
+                                                    <select class="custom-select" name="gender" >
+                                                        <option selected>Male</option>
+                                                        <option value="">Female</option>
+
+                                                    </select>
+                                        </div>
+
+                            </span>
+                        <label for=""style = "margin-top: 1em">Vaccine Up-to-Date</label>
+                        <span>
+                                  <div class="form-group" style="font-size: larger">
+                                                <label for=""></label>
+                                                    <select class="custom-select" name="vaccine" id="">
+                                                        <option selected>Yes</option>
+                                                        <option value="">No</option>
+
+                                                    </select>
+                                        </div>
+
+                            </span>
+
+                        <label for=""style = "margin-top: 1em">Registered</label>
+                        <span>
+                                 <div class="form-group" style="font-size: larger">
+                                                <label for=""></label>
+                                                    <select class="custom-select" name="registered" id="">
+                                                        <option selected>Yes</option>
+                                                        <option value="">No</option>
+
+                                                    </select>
+                                        </div>
 
                             </span>
 
@@ -107,11 +150,7 @@
 
                             </span>
 
-                        <label for=""style = "margin-top: 1em">Gender</label>
-                        <span>
-                                 <input type="text" name="gender"  class="form-control" placeholder="" aria-describedby="helpId">
 
-                            </span>
 
                         <label for=""style = "margin-top: 1em">Character</label>
                         <span>
@@ -119,17 +158,6 @@
 
                             </span>
 
-                        <label for=""style = "margin-top: 1em">Vaccine Up-to-Date</label>
-                        <span>
-                                 <input type="text" name="vaccine"  class="form-control" placeholder="" aria-describedby="helpId">
-
-                            </span>
-
-                        <label for=""style = "margin-top: 1em">Registered</label>
-                        <span>
-                                 <input type="text" name="registered"  class="form-control" placeholder="" aria-describedby="helpId">
-
-                            </span>
 
                         <label for=""style = "margin-top: 1em">Age</label>
                         <span>
@@ -148,6 +176,8 @@
 
                                 <button type="submit" class="btn btn-primary">ADD</button>
 
+
+
                           </div>
             </div>
 
@@ -156,11 +186,13 @@
                 <h2 class="text-center" style="padding-top: 0.2em">Your pet's image:</h2>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                 <img src="#" id="imgshow" align="left" style="width: 450px;height: auto;padding-top: 3.5em">
-                <input type="file" id="imgload"  style="padding-top: 4em">
+                <input type="file" id="imgload" name="file" style="padding-top: 4em">
                 
+
+
             </div>
-  
-            
+
+
         </section>
     </section>
     <!--main content end-->

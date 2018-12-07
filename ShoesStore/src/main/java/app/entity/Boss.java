@@ -9,7 +9,7 @@ public class Boss {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idboss;
+    String idboss;
 
     @Column
     private String bosskind;
@@ -20,11 +20,11 @@ public class Boss {
     private String vaccine;
     private String registered;
 
-    public int getIdboss() {
+    public String getIdboss() {
         return idboss;
     }
 
-    public void setIdboss(int idboss) {
+    public void setIdboss(String idboss) {
         this.idboss = idboss;
     }
 

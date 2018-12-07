@@ -31,8 +31,8 @@
 </head>
 
 <body>
-<form action="/admin/deleted/" method="post">
 <section id="container">
+
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -42,9 +42,7 @@
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
         <!--logo start-->
-
-            <a href="/admin" class="logo" ><b>Boss<span>Store</span></b></a>
-
+        <a href="/admin" class="logo"><b>Boss<span>Store</span></b></a>
         <!--logo end-->
         <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
@@ -54,6 +52,7 @@
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
                 <li><a class="logout" href="/">Logout</a></li>
+                <li>${imgPath}</li>
             </ul>
         </div>
     </header>
@@ -66,28 +65,23 @@
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <p class="centered"><a href="profile.html"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+                <p class="centered"><a href="#"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="90"></a></p>
                 <h5 class="centered" name = "id">${index}</h5>
                 <h5 class="centered" name = "nameLogin">${nameLogin}</h5>
                 <br>
                 <br>
-                <li >
-                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/add';" type="button" >
-                        <i class="fa fa-plus-circle"></i>
-                            <span>Add pet</span>
-                        </button>
-                </li>
-<br>
-                <li >
-                    <button class="btn btn-block btn-primary "  type="button" data-toggle="modal" data-target="#modelId">
-                        <i class="fa fa-remove"></i>
-                        <span>Delete</span>
+                <li class="sub-menu">
+                    <form class="form-group" method="post">
+
+
+
+                    </form>
+
+                    <button class="btn btn-block btn-primary " onclick="window.location='/admin';" type="button" >
+                        <i class="fa fa-backward"></i>
+                        <span>Back</span>
                     </button>
-
-                   
-
                 </li>
-
             </ul>
             <!-- sidebar menu end-->
         </div>
@@ -97,82 +91,21 @@
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-
     <section id="main-content" >
         <section class="wrapper">
-            <div class="row" style="align-items: center;float: bottom">
-                <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-                <c:forEach items="${bossList}" var="item">
-                    <div class="col-xs-3">
-                        <!----------- PRODUCT CARD ----------------->
-                        <div class="card" style="margin-top: 1em; width: 250px; height: 450px">
-                            <img class="card-img-top img-fluid" src="../../resources/static/img/bossImg/${item.idboss}.jpg"  alt="${item.bosscharacter}" title="${item.bosscharacter}" style="height: 14em;width: 18em" >
-                            <div class="card-body" style="padding-top: 1em">
-                                <div class="card-block text-center">
-                                    <h4 class="card-title" >${item.bossname}</h4>
-                                    <p class="card-text" >
-
-                                        <div class="text-left" style="padding-left: 1em;padding-right: 1em;">
-                                    <p>Current Age: ${item.bossage}.</p>
-                                    <p>Gender: ${item.gender}.</p>
-                                    <p>Vaccine Up-to-Date: ${item.vaccine}
-                                    </p>
-                                    <p>Registered: ${item.registered}</p>
-                                    <p>Price:
-
-                                    <span style="color: red; font-size: 1.25em">
-                                        ${item.price}
-                                    </span>
-
-                                    </p>
-
-                                        </div>
-
-                                    </p>
-                                <div class="text-center">
-
-                                    <input type="checkbox" style= "width: 1.2em; height: 1.2em" name = "delete" value = ${item.idboss} >
-                                </div>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                        <!----------- end ----------------->
-
-                    </div>
-                </c:forEach>
-
+            <div class="text-center">
+                <img class="animated bounce " src="../../resources/static/img/checkmark.gif" style="width: 400px;height:auto" >
+                <h2 >Deleted !</h2>
             </div>
-            <!----modal-->
-            <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header text-center " style="background-color: #d9534f">
-                                <h3 class="modal-title">Delete Confirm</h3>
-                                    </button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Are you sure ?</h4>
-                                
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-secondary" >No! Just kidding, i love him <i class="fa fa-heart"></i></button>
-                                <button type="button" class="btn btn-danger"data-dismiss="modal">Delete this</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!---end modal-->
 
         </section>
     </section>
     <!--main content end-->
-      <!--main content end-->
-    
-    
+    <!--main content end-->
+
+
 </section>
+
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="../../resources/static/lib/jquery/jquery.min.js"></script>
 
@@ -192,9 +125,59 @@
 <script type="application/javascript">
 
 
+    $('document').ready(function () {
+        $("#imgload").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imgshow').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
 
+    $(document).ready(function() {
+        $("#date-popover").popover({
+            html: true,
+            trigger: "manual"
+        });
+        $("#date-popover").hide();
+        $("#date-popover").click(function(e) {
+            $(this).hide();
+        });
+
+        $("#my-calendar").zabuto_calendar({
+            action: function() {
+                return myDateFunction(this.id, false);
+            },
+            action_nav: function() {
+                return myNavFunction(this.id);
+            },
+            ajax: {
+                url: "show_data.php?action=1",
+                modal: true
+            },
+            legend: [{
+                type: "text",
+                label: "Special event",
+                badge: "00"
+            },
+                {
+                    type: "block",
+                    label: "Regular event",
+                }
+            ]
+        });
+    });
+
+    function myNavFunction(id) {
+        $("#date-popover").hide();
+        var nav = $("#" + id).data("navigation");
+        var to = $("#" + id).data("to");
+        console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
 </script>
-</form>
 </body>
 
 </html>

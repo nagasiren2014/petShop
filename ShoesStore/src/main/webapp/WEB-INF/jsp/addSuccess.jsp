@@ -52,6 +52,7 @@
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
                 <li><a class="logout" href="/">Logout</a></li>
+                <li>${imgPath}</li>
             </ul>
         </div>
     </header>
@@ -71,14 +72,22 @@
                 <li class="sub-menu">
                     <form class="form-group" method="post">
 
-                        <input type="text" class="form-control" name="name"  aria-describedby="helpId" placeholder="Search here ..." >
+
 
                     </form>
 
-                        <a href="/admin/add" class="dcjq-parent">
-                            <i class="fa fa-plus-square-o" aria-hidden="true" ></i>
-                            <span class="text-primary " style = "font-size: medium; color: #ff2ea9; ">Keep adding</span>
-                            <span class="dcjq-icon"></span></a>
+                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/add';" type="button" >
+                        <i class="fa fa-plus-circle"></i>
+                        <span>Keep adding</span>
+                    </button>
+
+                </li>
+                <br>
+                <li>
+                    <button class="btn btn-block btn-primary " onclick="window.location='/admin';" type="button" >
+                        <i class="fa fa-backward"></i>
+                        <span>Back to admin page</span>
+                    </button>
                 </li>
             </ul>
             <!-- sidebar menu end-->
