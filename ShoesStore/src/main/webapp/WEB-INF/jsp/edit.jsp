@@ -33,71 +33,72 @@
 <body>
 
 <section id="container">
-    <form action="addSuccess" enctype="multipart/form-data" method="post">
-    <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
-    <!--header start-->
-    <header class="header black-bg">
-        <div class="sidebar-toggle-box">
-            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-        </div>
-        <!--logo start-->
-        <a href="/admin" class="logo"><b>Boss<span>Store</span></b></a>
-        <!--logo end-->
-        <div class="nav notify-row" id="top_menu">
-            <!--  notification start -->
+    <form action="edit/editSuccess?idedit=${boss.idboss}" enctype="multipart/form-data" method="post">
+        <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="/admin" class="logo"><b>Boss<span>Store</span></b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
 
-            <!--  notification end -->
-        </div>
-        <div class="top-menu">
-            <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="/">Logout</a></li>
-            </ul>
-        </div>
-    </header>
-    <!--header end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-    <!--sidebar start-->
-    <aside>
-        <div id="sidebar" class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-                <p class="centered"><a href="#"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="90"></a></p>
-                <h5 class="centered" name = "id">${index}</h5>
-                <h5 class="centered" name = "nameLogin">${nameLogin}</h5>
-                <br>
-                <br>
-                <li class="sub-menu">
+                <!--  notification end -->
+            </div>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+        <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href="#"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="90"></a></p>
+                    <h5 class="centered" name = "id">${index}</h5>
+                    <h5 class="centered" name = "nameLogin">${nameLogin}</h5>
+                    <br>
+                    <br>
+                    <li class="sub-menu">
 
-                    <button class="btn btn-block btn-primary " onclick="window.location='/admin';" type="button" >
-                        <i class="fa fa-remove"></i>
-                        <span>Cancel</span>
-                    </button>
+                        <button class="btn btn-block btn-primary " onclick="window.location='/admin';" type="button" >
+                            <i class="fa fa-remove"></i>
+                            <span>Cancel</span>
+                        </button>
 
-                </li>
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
-    <!--sidebar end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-    <!--main content start-->
-    <section id="main-content" >
-        <section class="wrapper">
-            <div class="col-sm-5 " style="margin-left: 5em">
-                <h2 class="text-center">Your pet's information</h2>
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content" >
+            <section class="wrapper">
+                <div class="col-sm-5 " style="margin-left: 5em">
+                    <h2 class="text-center">Your pet's information</h2>
                     <div class="form-group" style="margin-top: 2em">
-                            <label for="" style = "margin-top: 1em">Kind(Dog or Cat)</label>
-                            <span>
+                        <label for="" style = "margin-top: 1em">Kind(Dog or Cat) <br> <p style="color: red">current: ${boss.bosskind}</p></label>
+                        <span>
 
                                            <div class="form-group" style="font-size: larger">
                                                 <label for=""></label>
                                                     <select class="custom-select" name="kind" >
+
                                                         <option selected>Dog</option>
                                                         <option selected>Cat</option>
 
@@ -106,7 +107,7 @@
 
                             </span>
 
-                        <label for=""style = "margin-top: 1em">Gender</label>
+                        <label for=""style = "margin-top: 1em">Gender <br> <p style="color: red">current: ${boss.gender}</p></label>
                         <span>
                                   <div class="form-group" style="font-size: larger">
                                                 <label for=""></label>
@@ -114,11 +115,12 @@
                                                         <option selected>Male</option>
                                                         <option selected>Female</option>
 
+
                                                     </select>
                                         </div>
 
                             </span>
-                        <label for=""style = "margin-top: 1em">Vaccine Up-to-Date</label>
+                        <label for=""style = "margin-top: 1em">Vaccine Up-to-Date <br> <p style="color: red">current: ${boss.vaccine}</p></label>
                         <span>
                                   <div class="form-group" style="font-size: larger">
                                                 <label for=""></label>
@@ -131,7 +133,7 @@
 
                             </span>
 
-                        <label for=""style = "margin-top: 1em">Registered</label>
+                        <label for=""style = "margin-top: 1em">Registered <br> <p style="color: red">current: ${boss.registered}</p></label>
                         <span>
                                  <div class="form-group" style="font-size: larger">
                                                 <label for=""></label>
@@ -146,7 +148,7 @@
 
                         <label for="" style = "margin-top: 1em">Name</label>
                         <span>
-                                 <input type="text" name="nem"  class="form-control" placeholder="" aria-describedby="helpId">
+                                 <input type="text" name="nem" value="${boss.bossname}" class="form-control" placeholder="" aria-describedby="helpId">
 
                             </span>
 
@@ -154,49 +156,49 @@
 
                         <label for=""style = "margin-top: 1em">Character</label>
                         <span>
-                                 <input type="text" name="character"  class="form-control" placeholder="" aria-describedby="helpId">
+                                 <input type="text" name="character" value="${boss.bosscharacter}" class="form-control" placeholder="" aria-describedby="helpId">
 
                             </span>
 
 
                         <label for=""style = "margin-top: 1em">Age</label>
                         <span>
-                                 <input type="text" name="age" class="form-control" placeholder="" aria-describedby="helpId">
+                                 <input type="text" name="age" class="form-control" value="${boss.bossage}" placeholder="" aria-describedby="helpId">
 
                             </span>
 
                         <label for=""style = "margin-top: 1em">Price</label>
                         <span>
-                                 <input type="text" name="price" class="form-control" placeholder="" aria-describedby="helpId">
+                                 <input type="text" name="price" class="form-control" value="${boss.price}" placeholder="" aria-describedby="helpId">
 
                             </span>
-                            <br>
+                        <br>
 
 
 
-                                <button type="submit" class="btn btn-primary">ADD</button>
+                        <button type="submit" class="btn btn-primary">SAVE</button>
 
 
 
-                          </div>
-            </div>
+                    </div>
+                </div>
 
 
-            <div class="col-sm-5" style="margin-left: 3em">
-                <h2 class="text-center" style="padding-top: 0.2em">Your pet's image:</h2>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                <img src="#" id="imgshow" align="left" style="width: 450px;height: auto;padding-top: 3.5em">
-                <input type="file" id="imgload" name="file" style="padding-top: 4em">
-                
+                <div class="col-sm-5" style="margin-left: 3em">
+                    <h2 class="text-center" style="padding-top: 0.2em">Your pet's image:</h2>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <img src="../../resources/static/img/bossImg/${boss.idboss}.jpg" id="imgshow" align="left" style="width: 450px;height: auto;padding-top: 3.5em">
+                    <input type="file" id="imgload" name="file" style="padding-top: 4em">
 
 
-            </div>
+
+                </div>
 
 
+            </section>
         </section>
-    </section>
-    <!--main content end-->
-    <!--main content end-->
+        <!--main content end-->
+        <!--main content end-->
 
     </form>
 </section>

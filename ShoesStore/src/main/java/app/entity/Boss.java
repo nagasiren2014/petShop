@@ -103,6 +103,18 @@ public class Boss {
         this.price = price;
     }
 
+    public Boss(String idboss,String bosskind, String bossname, String gender, String bossage, String bosscharacter, String vaccine, String registered, String price) {
+        this.idboss = idboss;
+        this.bosskind = bosskind;
+        this.bossname = bossname;
+        this.gender = gender;
+        this.bossage = bossage;
+        this.bosscharacter = bosscharacter;
+        this.vaccine = vaccine;
+        this.registered = registered;
+        this.price = price;
+    }
+
     private String price;
 
 

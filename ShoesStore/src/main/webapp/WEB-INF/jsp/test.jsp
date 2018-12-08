@@ -1,1 +1,1 @@
-<p>${listParams}</p>
+<p>${boss.kind}</p>

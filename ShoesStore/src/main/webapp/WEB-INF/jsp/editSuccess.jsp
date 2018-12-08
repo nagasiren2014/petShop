@@ -31,9 +31,8 @@
 </head>
 
 <body>
-
 <section id="container">
-    <form action="addSuccess" enctype="multipart/form-data" method="post">
+
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -53,6 +52,7 @@
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
                 <li><a class="logout" href="/">Logout</a></li>
+                <li>${imgPath}</li>
             </ul>
         </div>
     </header>
@@ -68,15 +68,23 @@
                 <p class="centered"><a href="#"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="90"></a></p>
                 <h5 class="centered" name = "id">${index}</h5>
                 <h5 class="centered" name = "nameLogin">${nameLogin}</h5>
-                <br>
-                <br>
+
                 <li class="sub-menu">
+                    <form class="form-group" method="post">
 
+
+
+                    </form>
+
+
+
+                </li>
+                <br>
+                <li>
                     <button class="btn btn-block btn-primary " onclick="window.location='/admin';" type="button" >
-                        <i class="fa fa-remove"></i>
-                        <span>Cancel</span>
+                        <i class="fa fa-backward"></i>
+                        <span>Back to admin page</span>
                     </button>
-
                 </li>
             </ul>
             <!-- sidebar menu end-->
@@ -89,117 +97,19 @@
     <!--main content start-->
     <section id="main-content" >
         <section class="wrapper">
-            <div class="col-sm-5 " style="margin-left: 5em">
-                <h2 class="text-center">Your pet's information</h2>
-                    <div class="form-group" style="margin-top: 2em">
-                            <label for="" style = "margin-top: 1em">Kind(Dog or Cat)</label>
-                            <span>
-
-                                           <div class="form-group" style="font-size: larger">
-                                                <label for=""></label>
-                                                    <select class="custom-select" name="kind" >
-                                                        <option selected>Dog</option>
-                                                        <option selected>Cat</option>
-
-                                                    </select>
-                                        </div>
-
-                            </span>
-
-                        <label for=""style = "margin-top: 1em">Gender</label>
-                        <span>
-                                  <div class="form-group" style="font-size: larger">
-                                                <label for=""></label>
-                                                    <select class="custom-select" name="gender" >
-                                                        <option selected>Male</option>
-                                                        <option selected>Female</option>
-
-                                                    </select>
-                                        </div>
-
-                            </span>
-                        <label for=""style = "margin-top: 1em">Vaccine Up-to-Date</label>
-                        <span>
-                                  <div class="form-group" style="font-size: larger">
-                                                <label for=""></label>
-                                                    <select class="custom-select" name="vaccine" id="">
-                                                        <option selected>Yes</option>
-                                                        <option selected>No</option>
-
-                                                    </select>
-                                        </div>
-
-                            </span>
-
-                        <label for=""style = "margin-top: 1em">Registered</label>
-                        <span>
-                                 <div class="form-group" style="font-size: larger">
-                                                <label for=""></label>
-                                                    <select class="custom-select" name="registered" id="">
-                                                        <option selected>Yes</option>
-                                                        <option selected>No</option>
-
-                                                    </select>
-                                        </div>
-
-                            </span>
-
-                        <label for="" style = "margin-top: 1em">Name</label>
-                        <span>
-                                 <input type="text" name="nem"  class="form-control" placeholder="" aria-describedby="helpId">
-
-                            </span>
-
-
-
-                        <label for=""style = "margin-top: 1em">Character</label>
-                        <span>
-                                 <input type="text" name="character"  class="form-control" placeholder="" aria-describedby="helpId">
-
-                            </span>
-
-
-                        <label for=""style = "margin-top: 1em">Age</label>
-                        <span>
-                                 <input type="text" name="age" class="form-control" placeholder="" aria-describedby="helpId">
-
-                            </span>
-
-                        <label for=""style = "margin-top: 1em">Price</label>
-                        <span>
-                                 <input type="text" name="price" class="form-control" placeholder="" aria-describedby="helpId">
-
-                            </span>
-                            <br>
-
-
-
-                                <button type="submit" class="btn btn-primary">ADD</button>
-
-
-
-                          </div>
+            <div class="text-center">
+                <img class="animated bounce " src="../../resources/static/img/checkmark.gif" style="width: 400px;height:auto" >
+                <h2 >Edit Successfully !</h2>
             </div>
-
-
-            <div class="col-sm-5" style="margin-left: 3em">
-                <h2 class="text-center" style="padding-top: 0.2em">Your pet's image:</h2>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                <img src="#" id="imgshow" align="left" style="width: 450px;height: auto;padding-top: 3.5em">
-                <input type="file" id="imgload" name="file" style="padding-top: 4em">
-                
-
-
-            </div>
-
 
         </section>
     </section>
     <!--main content end-->
     <!--main content end-->
 
-    </form>
+
 </section>
+
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="../../resources/static/lib/jquery/jquery.min.js"></script>
 

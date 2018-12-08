@@ -102,15 +102,17 @@ public class LoginController {
                              @RequestParam(value = "price",defaultValue = "") String price,
                              @RequestParam(value = "file") MultipartFile file, Model model) throws IOException
     {
-        Boss boss = new Boss(kind,name,gender,age,character,vaccine,registered,price + "$");
+
+        Boss boss = new Boss(kind,name,gender,age,character,vaccine,registered,  price );
         bossRepository.save(boss);
         List<Boss> bossList = (List<Boss>) bossRepository.findAll();
         String lastBossID = String.valueOf(bossList.get(bossList.size() - 1).getIdboss());
-
         saveFileTo(file,lastBossID);
 
         return "addSuccess";
     }
+
+
 
 @RequestMapping("/admin/deleted")
 public String method(@RequestParam(value = "delete",defaultValue = "") List<String> params, Model model)
@@ -124,7 +126,35 @@ public String method(@RequestParam(value = "delete",defaultValue = "") List<Stri
         return "deleted";
     }
     else
-        return "error";
+        return "errorDel";
+}
+
+@RequestMapping("/admin/edit")
+public String editPet(@RequestParam(value = "idedit",defaultValue = "none") String id, Model model)
+{
+    Boss boss = bossRepository.findById(id).orElse(new Boss());
+    model.addAttribute("boss",boss);
+    return "edit";
+}
+
+@RequestMapping("/admin/edit/editSuccess")
+public String editSuccessPet(@RequestParam(value = "kind",defaultValue = "") String kind,
+                      @RequestParam(value = "age",defaultValue = "") String age,
+                      @RequestParam(value = "nem",defaultValue = "") String name,
+                      @RequestParam(value = "gender",defaultValue = "") String gender,
+                      @RequestParam(value = "character",defaultValue = "") String character,
+                      @RequestParam(value = "vaccine",defaultValue = "") String vaccine,
+                      @RequestParam(value = "registered",defaultValue = "") String registered,
+                      @RequestParam(value = "price",defaultValue = "") String price,
+                      @RequestParam(value = "file") MultipartFile file,
+                      @RequestParam(value = "idedit",defaultValue = "none") String id,
+                      Model model)
+{
+
+    Boss boss = new Boss(id,kind,name,gender,age,character,vaccine,registered,price);
+    bossRepository.save(boss);
+    saveFileTo(file,id);
+    return "editSuccess";
 }
 
 private static void deleteFile(String id)

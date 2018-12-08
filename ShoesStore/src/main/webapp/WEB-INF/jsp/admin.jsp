@@ -105,23 +105,23 @@
                 <c:forEach items="${bossList}" var="item">
                     <div class="col-xs-3">
                         <!----------- PRODUCT CARD ----------------->
-                        <div class="card" style="margin-top: 1em; width: 250px; height: 450px">
-                            <img class="card-img-top img-fluid" src="../../resources/static/img/bossImg/${item.idboss}.jpg"  alt="${item.bosscharacter}" title="${item.bosscharacter}" style="height: 14em;width: 18em" >
-                            <div class="card-body" style="padding-top: 1em">
+                        <div class="card" style="margin-top: 1em; width: 250px; height: 455px">
+                            <a href="admin/edit?idedit=${item.idboss}"  ><img class="card-img-top"   src="../../resources/static/img/bossImg/${item.idboss}.jpg"  alt="${item.idboss}" title="${item.bosscharacter}" style="height: 14em;width: 18em" ></a>
+                            <div class="card-body" >
                                 <div class="card-block text-center">
-                                    <h4 class="card-title" >${item.bossname}</h4>
+                                    <h3 class="card-title" >${item.bossname}</h3>
                                     <p class="card-text" >
 
                                         <div class="text-left" style="padding-left: 1em;padding-right: 1em;">
-                                    <p>Current Age: ${item.bossage}.</p>
-                                    <p>Gender: ${item.gender}.</p>
-                                    <p>Vaccine Up-to-Date: ${item.vaccine}
-                                    </p>
-                                    <p>Registered: ${item.registered}</p>
-                                    <p >
 
+                                    <p style = "font-weight: bold">Gender: <span style = " float:right; font-weight: normal; font-size: large; color: limegreen">${item.gender}</span></p>
+                                    <p style = "font-weight: bold">Current Age: <span style = "float:right; font-weight: normal; font-size: large; color: limegreen" >${item.bossage}</span></p>
+                                    <p style = "font-weight: bold">Registered: <span style = "float:right; font-weight: normal; font-size: large; color: limegreen">${item.registered}</span></p>
+                                    <p style = "font-weight: bold">Vaccine Up-to-Date: <span style = "float:right; font-weight: normal; font-size: large; color: limegreen">${item.registered}</span></p>
+
+                                    <p>
                                     <span  style="color: red; font-size: 2em">
-                                        ${item.price}
+                                        $${item.price}
                                     </span>
 
                                     </p>
@@ -158,13 +158,35 @@
                                 
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-secondary" >No! Just kidding, i love him <i class="fa fa-heart"></i></button>
-                                <button type="button" class="btn btn-danger"data-dismiss="modal">Delete this</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No!  <i class="fa fa-heart"></i></button>
+                                <button type="submit" class="btn btn-danger">Delete this</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!---end modal-->
+
+                <!-----modal edit------->
+                <div class="modal fade" id="modeledit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center " style="background-color: #d9534f">
+                                <h3 class="modal-title">Edit</h3>
+                                    </button>
+                            </div>
+                            <div class="modal-body">
+                                <div>Name: <span><input type="text" class="form-control" value="truyen name vao day !"></span></div>
+
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No!  <i class="fa fa-heart"></i></button>
+                                <button type="submit" class="btn btn-danger">Delete this</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---end edit-modal----->
 
         </section>
     </section>
