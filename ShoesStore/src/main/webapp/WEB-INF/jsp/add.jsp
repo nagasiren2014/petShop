@@ -99,7 +99,7 @@
                                                 <label for=""></label>
                                                     <select class="custom-select" name="kind" >
                                                         <option selected>Dog</option>
-                                                        <option value="">Cat</option>
+                                                        <option selected>Cat</option>
 
                                                     </select>
                                         </div>
@@ -112,7 +112,7 @@
                                                 <label for=""></label>
                                                     <select class="custom-select" name="gender" >
                                                         <option selected>Male</option>
-                                                        <option value="">Female</option>
+                                                        <option selected>Female</option>
 
                                                     </select>
                                         </div>
@@ -124,7 +124,7 @@
                                                 <label for=""></label>
                                                     <select class="custom-select" name="vaccine" id="">
                                                         <option selected>Yes</option>
-                                                        <option value="">No</option>
+                                                        <option selected>No</option>
 
                                                     </select>
                                         </div>
@@ -137,7 +137,7 @@
                                                 <label for=""></label>
                                                     <select class="custom-select" name="registered" id="">
                                                         <option selected>Yes</option>
-                                                        <option value="">No</option>
+                                                        <option selected>No</option>
 
                                                     </select>
                                         </div>

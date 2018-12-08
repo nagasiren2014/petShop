@@ -118,9 +118,9 @@
                                     <p>Vaccine Up-to-Date: ${item.vaccine}
                                     </p>
                                     <p>Registered: ${item.registered}</p>
-                                    <p>Price:
+                                    <p >
 
-                                    <span style="color: red; font-size: 1.25em">
+                                    <span  style="color: red; font-size: 2em">
                                         ${item.price}
                                     </span>
 
