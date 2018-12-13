@@ -9,6 +9,8 @@
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <title>Buy a boss for a better life ~~</title>
 
+    <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
+
     <!-- Favicons -->
     <link href="../../resources/static/img/favicon.png" rel="icon">
     <link href="../../resources/static/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -17,8 +19,10 @@
     <link href="../../resources/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="../../resources/static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <!-- Custom styles for this template -->
     <link href="../../resources/static/css/style.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../resources/static/css/style.css" rel="stylesheet" type="text/css" media="screen">
     <link href="../../resources/static/css/style-responsive.css" rel="stylesheet">
 
    </head>
@@ -28,7 +32,7 @@
     MAIN CONTENT
     *********************************************************************************************************************************************************** -->
 <div id="login-page">
-    <div class="container">
+    <div class="c8ontainer">
 
         <form class="form-login"  action ="admin" method="post">
             <h2 class="form-login-heading">sign in now</h2>

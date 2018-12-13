@@ -129,6 +129,8 @@ a, a:hover, a:focus {
     border-color: #37bc9b;
 }
 
+
+
 .btn-theme04 {
     color: #fff;
     background-color: #ed5565;
@@ -1021,15 +1023,73 @@ PANELS CONFIGURATIONS
 }
 
 /*STOCK CARD Panel*/
+
+.card:hover{
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+    -moz-animation-fill-mode: backwards;
+}
+
 .card {
     background: white;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
     margin-bottom: 1em;
     margin-top: 1em;
-    height: 250px;
-    width: 100px;
+    width: 250px;
+    height: 410px;
+
 
 }
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+
+    text-align-all: center;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    text-align-all: center;
+
+    transform: rotateY(180deg);
+}
+
 .stock .stock-chart {
     background: #00c5de;
 }

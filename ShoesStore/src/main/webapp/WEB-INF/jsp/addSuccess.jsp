@@ -15,11 +15,11 @@
     <!-- Favicons -->
     <link href="../../resources/static/img/favicon.png" rel="icon">
     <link href="../../resources/static/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="../../resources/static/css/style.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="../../resources/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="../../resources/static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="../../resources/static/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../../resources/static/lib/gritter/css/jquery.gritter.css" />
     <!-- Custom styles for this template -->
@@ -68,6 +68,8 @@
                 <p class="centered"><a href="#"><img src="../../resources/static/img/ui-sam.jpg" class="img-circle" width="90"></a></p>
                 <h5 class="centered" name = "id">${index}</h5>
                 <h5 class="centered" name = "nameLogin">${nameLogin}</h5>
+                    <br>
+                <br>
 
                 <li class="sub-menu">
                     <form class="form-group" method="post">
@@ -76,7 +78,7 @@
 
                     </form>
 
-                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/add';" type="button" >
+                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/pets/add';" type="button" >
                         <i class="fa fa-plus-circle"></i>
                         <span>Keep adding</span>
                     </button>
@@ -84,9 +86,9 @@
                 </li>
                 <br>
                 <li>
-                    <button class="btn btn-block btn-primary " onclick="window.location='/admin';" type="button" >
+                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/pets';" type="button" >
                         <i class="fa fa-backward"></i>
-                        <span>Back to admin page</span>
+                        <span>Back to pets page</span>
                     </button>
                 </li>
             </ul>
