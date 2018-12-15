@@ -102,7 +102,7 @@ public class BossController {
         model.addAttribute("boss",boss);
         List<Kind> kindList = (List<Kind>) kindRepository.findAll();
         model.addAttribute("kindList",kindList);
-        return "edit";
+        return "petEdit";
     }
 
     @RequestMapping("/admin/pets/editSuccess")

@@ -93,7 +93,7 @@
                     </li>
 
                     <li>
-                        <button class = "btn btn-block btn-primary" type = button>
+                        <button class = "btn btn-block btn-primary" onclick="window.location='admin/employee';" type = button>
                             <div class="text-left">
                             <i class="fa fa-users" ></i>
                             <span>Employee</span>

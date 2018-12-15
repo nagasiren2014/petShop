@@ -33,8 +33,8 @@
 
 </head>
 
-<body >
-<form action="/admin/kind" method="post">
+<body>
+<form action="/admin/employee/deleted" method="post">
     <section id="container">
         <!-- **********************************************************************************************************************************************************
             TOP BAR CONTENT & NOTIFICATIONS
@@ -76,12 +76,29 @@
                     <br>
 
                     <li >
-                        <button class="btn btn-block btn-primary "  type="button" data-toggle="modal" data-target="#modelId">
+                        <button class="btn btn-block btn-primary " onclick="window.location='/admin/pets/add';" type="button" >
                             <i class="fa fa-plus-circle"></i>
-                            <span>Add kind</span>
+                            <span>Add employee</span>
                         </button>
                     </li>
+                    <br>
+                    <li >
+                        <button class="btn btn-block btn-primary "  type="button" data-toggle="modal" data-target="#modelId">
+                            <i class="fa fa-remove"></i>
+                            <span>Delete</span>
+                        </button>
+                    </li>
+                    <br>
+                    <li >
+                        <button class="btn btn-block btn-primary "  type="button"  onclick="selectAll()">
+                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            <span>Check/Uncheck all</span>
+                        </button>
+                    </li>
+                    <br>
+                    <li>
 
+                    </li>
 
                 </ul>
                 <!-- sidebar menu end-->
@@ -94,79 +111,90 @@
         <!--main content start-->
 
         <section id="main-content" >
-            <section class="wrapper" >
-                <h1 class="text-center">Kind List</h1>
-                <br>
-                <table class="table table-dark  " style="font-size: large; ">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-                        <c:forEach items="${kindList}" var="item">
-                            <tr>
-                                <th scope="row">${item.idkind}</th>
-                                <td>${item.name}</td>
-                                <td>
-                                    <button class="btn btn-primary "  type="button"  onclick="window.location = 'kind/kindEdit?idEdit=${item.idkind}'">
-                                        Edit
-                                    </button>
+            <section class="wrapper">
+                <div class="row" style="align-items: center;float: bottom">
+                    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                    <c:forEach items="${employeeList}" var="item">
+                    <div class="col-xs-3">
+                        <!----------- PRODUCT CARD ----------------->
+                        <div class="card" >
+                            <a href="employee/employeeEdit?idedit=${item.idemployee}"  ><img class="card-img-top"   src="../../resources/static/img/bossImg/${item.idemployee}.jpg"  title="Supa Employee" style="height: 14em;width: 19.25em" ></a>
+                            <div class="card-body" >
+                                <div class="card-block text-center">
+                                    <h3 class="card-title" >${item.lastname} ${item.firstname}</h3>
+                                    <p class="card-text" >
 
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary "  type="button" data-toggle="modal" data-target="#${item.idkind}">
-                                        Delete
-                                    </button>
-                                    <!----modal Del-->
-                                    <div class="modal fade" id="${item.idkind}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header text-center " style="background-color: #d9534f">
-                                                    <h3 class="modal-title">Are you sure ?</h3>
-                                                </div>
-                                                <div class="modal-body text-center">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel  <i class="fa fa-heart"></i></button>
-                                                    <button type="button" class="btn btn-danger" onclick="window.location = 'kind?id=${item.idkind}'">Delete</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!---end modal Del-->
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                                        <div class="text-left" style="padding-left: 1em;padding-right: 1em;">
+
+                                    <p style = "font-weight: bold">Gender: <span style = " float:right; font-weight: normal; font-size: medium; color: limegreen">${item.gender}</span></p>
+                                    <p style = "font-weight: bold">Age: <span style = " float:right; font-weight: normal; font-size: medium; color: limegreen">${item.employeeage}</span></p>
+                                    <p style = "font-weight: bold">ID Branch: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen" >${item.idbranch}</span></p>
+                                    <p style = "font-weight: bold">Phone: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.phone}</span></p>
+                                    <p style = "font-weight: bold">ID job: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.idjob}</span></p>
+                                    <p style = "font-weight: bold">Status: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.idstatus}</span></p>
+
+                                </div>
+
+                                </p>
+
+                                <div class="text-center">
+
+                                    <input type="checkbox" style= "width: 1.2em; height: 1.2em" name = "delete" value = ${item.idemployee} >
+                                </div>
+                            </div>
 
 
+                        </div>
+
+                    </div>
+                    <!----------- end ----------------->
+
+                </div>
+                </c:forEach>
+
+                </div>
                 <!----modal-->
-                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true" >
+                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header text-center " style="background-color: #d9534f">
-                                <h3 class="modal-title">What kind do you want to add ?</h3>
+                                <h3 class="modal-title">Delete Confirm</h3>
+                                </button>
                             </div>
-                            <div class="modal-body text-center">
-                                <input  type="text" placeholder="kind name here..." name = "newkind" style="font-size: large" autofocus>
+                            <div class="modal-body">
+                                <h4>Are you sure ?</h4>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel  <i class="fa fa-heart"></i></button>
-                                <button type="submit" class="btn btn-danger">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No!  <i class="fa fa-heart"></i></button>
+                                <button type="submit" class="btn btn-danger">Delete this</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!---end modal-->
 
+                <!-----modal edit------->
+                <div class="modal fade" id="modeledit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center " style="background-color: #d9534f">
+                                <h3 class="modal-title">Edit</h3>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div>Name: <span><input type="text" class="form-control" value="truyen name vao day !"></span></div>
 
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No!  <i class="fa fa-heart"></i></button>
+                                <button type="submit" class="btn btn-danger">Delete this</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---end edit-modal----->
 
             </section>
         </section>
@@ -193,17 +221,17 @@
 
     <script type="application/javascript">
 
-        function getNameEdit()
+        function selectAll()
         {
             var container = document.getElementById("main-content");
             var inputs = container.getElementsByTagName("input");
             for(x in inputs)
             {
-                if(inputs[x].type == "text") {
-                    if (inputs[x].value != "" && inputs[x].name == "nameE")
-                        inputs[x].name = "nameEdit";
-
-                }
+                if(inputs[x].type == "checkbox")
+                    if(inputs[x].checked == true)
+                        inputs[x].checked = false;
+                    else
+                        inputs[x].checked = true;
             }
         }
 
