@@ -19,6 +19,11 @@ public class Boss {
     private String bosscharacter;
     private String vaccine;
     private String registered;
+    private String price;
+    private String idprovider;
+
+    public Boss() {
+    }
 
     public String getIdboss() {
         return idboss;
@@ -92,7 +97,15 @@ public class Boss {
         this.price = price;
     }
 
-    public Boss(String bosskind, String bossname, String gender, String bossage, String bosscharacter, String vaccine, String registered, String price) {
+    public String getIdprovider() {
+        return idprovider;
+    }
+
+    public void setIdprovider(String idprovider) {
+        this.idprovider = idprovider;
+    }
+
+    public Boss(String bosskind, String bossname, String gender, String bossage, String bosscharacter, String vaccine, String registered, String price, String idprovider) {
         this.bosskind = bosskind;
         this.bossname = bossname;
         this.gender = gender;
@@ -101,9 +114,9 @@ public class Boss {
         this.vaccine = vaccine;
         this.registered = registered;
         this.price = price;
+        this.idprovider = idprovider;
     }
-
-    public Boss(String idboss,String bosskind, String bossname, String gender, String bossage, String bosscharacter, String vaccine, String registered, String price) {
+    public Boss(String idboss, String bosskind, String bossname, String gender, String bossage, String bosscharacter, String vaccine, String registered, String price, String idprovider) {
         this.idboss = idboss;
         this.bosskind = bosskind;
         this.bossname = bossname;
@@ -113,12 +126,6 @@ public class Boss {
         this.vaccine = vaccine;
         this.registered = registered;
         this.price = price;
-    }
-
-    private String price;
-
-
-
-    public Boss() {
+        this.idprovider = idprovider;
     }
 }

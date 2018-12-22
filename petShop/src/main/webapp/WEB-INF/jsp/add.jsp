@@ -18,15 +18,16 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../../resources/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
     <!--external css-->
     <link href="../../resources/static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="../../resources/static/css/style.css" rel="stylesheet">
+    <link href="../../resources/static/css/style.css?v=1.0" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" type="text/css" href="../../resources/static/lib/gritter/css/jquery.gritter.css" />
     <!-- Custom styles for this template -->
-
-    <link href="../../resources/static/css/style-responsive.css" rel="stylesheet">
-    <script src="../../resources/static/lib/chart-master/Chart.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../../resources/static/lib/bootstrap-fileupload/bootstrap-fileupload.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/static/lib/bootstrap-datepicker/css/datepicker.css" />
 
 </head>
 
@@ -91,13 +92,12 @@
         <section class="wrapper">
             <div class="col-sm-5 " style="margin-left: 5em">
                 <h2 class="text-center">Your pet's information</h2>
-                    <div class="form-group" style="margin-top: 2em">
+                    <div class="form-group "  style="margin-top: 2em; font-size: larger">
                             <label for="" style = "margin-top: 1em">Kind</label>
                             <span>
-
                                            <div class="form-group" style="font-size: larger">
-                                                <label for=""></label>
-                                                    <select class="custom-select" name="kind">
+
+                                                    <select class="form-control"  style="width: 50%" name="kind">
                                                         <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
                                                                 <c:forEach items="${kindList}" var="item">
                                                                     <option selected value = ${item.idkind}>${item.name}</option>
@@ -111,8 +111,8 @@
                         <label for=""style = "margin-top: 1em">Gender</label>
                         <span>
                                   <div class="form-group" style="font-size: larger">
-                                                <label for=""></label>
-                                                    <select class="custom-select" name="gender" >
+
+                                                    <select class="form-control"  style="width: 50%" name="gender" >
                                                         <option selected>Male</option>
                                                         <option selected>Female</option>
 
@@ -122,9 +122,9 @@
                             </span>
                         <label for=""style = "margin-top: 1em">Vaccine Up-to-Date</label>
                         <span>
-                                  <div class="form-group" style="font-size: larger">
-                                                <label for=""></label>
-                                                    <select class="custom-select" name="vaccine" id="">
+                                  <div  style="width: 50%">
+
+                                                    <select class="form-control"  style="width: 50%" name="vaccine" id="">
                                                         <option selected>Yes</option>
                                                         <option selected>No</option>
 
@@ -136,11 +136,25 @@
                         <label for=""style = "margin-top: 1em">Registered</label>
                         <span>
                                  <div class="form-group" style="font-size: larger">
-                                                <label for=""></label>
-                                                    <select class="custom-select" name="registered" >
+
+                                                    <select class="form-control"  style="width: 50%" name="registered" >
                                                         <option selected>Yes</option>
                                                         <option selected>No</option>
 
+                                                    </select>
+                                        </div>
+
+                            </span>
+
+                        <label for=""style = "margin-top: 1em">Provider</label>
+                        <span>
+                                 <div class="form-group" style="font-size: larger">
+
+                                                    <select class="form-control"  style="width: 50%" name="idprovider" >
+                                                        <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                                                                <c:forEach items="${providersList}" var="item">
+                                                                    <option selected value = ${item.idprovider}>${item.providername}</option>
+                                                                </c:forEach>
                                                     </select>
                                         </div>
 
@@ -179,11 +193,24 @@
 
 
             <div class="col-sm-5" style="margin-left: 3em">
-                <h2 class="text-center" style="padding-top: 0.2em">Your pet's image:</h2>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                <img src="#" id="imgshow" align="left" style="width: 450px;height: auto;padding-top: 3.5em">
-                <input type="file" id="imgload" name="file" style="padding-top: 4em">
-                
+                <div class="text-center">
+                <h2  style="padding-top: 0.2em">Your pet's image:</h2>
+                <!--------------------------IMG LOAD------------------>
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="fileupload-new thumbnail" style="width: 300px; height: 250px;">
+                        <img src="../../resources/static/img/bossImg/${boss.idboss}.jpg" alt=""/>
+                    </div>
+                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 300px; max-height: 250px; line-height: 20px;"></div>
+                    <div>
+                                                        <span class="btn btn-theme02 btn-file">
+                                                          <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select image</span>
+                                                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                                                        <input type="file" name = "file" class="default" />
+                                                        </span>
+                    </div>
+                </div>
+                <!------END IMG LOAD------------------------------>
+                </div>
 
 
             </div>
@@ -198,19 +225,22 @@
 </section>
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="../../resources/static/lib/jquery/jquery.min.js"></script>
-
 <script src="../../resources/static/lib/bootstrap/js/bootstrap.min.js"></script>
 <script class="include" type="text/javascript" src="../../resources/static/lib/jquery.dcjqaccordion.2.7.js"></script>
 <script src="../../resources/static/lib/jquery.scrollTo.min.js"></script>
 <script src="../../resources/static/lib/jquery.nicescroll.js" type="text/javascript"></script>
-<script src="../../resources/static/lib/jquery.sparkline.js"></script>
 <!--common script for all pages-->
 <script src="../../resources/static/lib/common-scripts.js"></script>
-<script type="text/javascript" src="../../resources/static/lib/gritter/js/jquery.gritter.js"></script>
-<script type="text/javascript" src="../../resources/static/lib/gritter-conf.js"></script>
 <!--script for this page-->
-<script src="../../resources/static/lib/sparkline-chart.js"></script>
-<script src="../../resources/static/lib/zabuto_calendar.js"></script>
+<script src="../../resources/static/lib/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../../resources/static/lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="../../resources/static/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../../resources/static/lib/bootstrap-daterangepicker/date.js"></script>
+<script type="text/javascript" src="../../resources/static/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../../resources/static/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="../../resources/static/lib/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../../resources/static/lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+<script src="../../resources/static/lib/advanced-form-components.js"></script>
 
 <script type="application/javascript">
 
@@ -221,7 +251,7 @@
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#imgshow').attr('src', e.target.result);
-                }
+                };
                 reader.readAsDataURL(this.files[0]);
             }
         });

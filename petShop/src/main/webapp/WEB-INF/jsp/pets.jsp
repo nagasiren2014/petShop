@@ -126,13 +126,25 @@
 
                                         <div class="text-left" style="padding-left: 1em;padding-right: 1em;">
 
-                                    <p style = "font-weight: bold">Gender: <span style = " float:right; font-weight: normal; font-size: medium; color: limegreen">${item.gender}</span></p>
-                                    <p style = "font-weight: bold">Current Age: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen" >${item.bossage}</span></p>
-                                    <p style = "font-weight: bold">Registered: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.registered}</span></p>
-                                    <p style = "font-weight: bold">Vaccine Up-to-Date: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.registered}</span></p>
+                                                <p style = "font-weight: bold">Gender: <span style = " float:right; font-weight: normal; font-size: medium; color: limegreen">${item.gender}</span></p>
+                                                <p style = "font-weight: bold">Current Age: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen" >${item.bossage}</span></p>
+                                                <p style = "font-weight: bold">Registered: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.registered}</span></p>
+                                                <p style = "font-weight: bold">Vaccine Up-to-Date: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.registered}</span></p>
+
+                                                <p style = "font-weight: bold">Provider: <span style = " float:right; font-weight: normal; font-size: medium; color: limegreen">
+                                                    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                                                <c:forEach items="${providersList}" var="provider">
+                                                   <script>
+                                                       if(${provider.idprovider} == ${item.idprovider})
+                                                       {
+                                                           document.write("${provider.providername}")
+                                                       }
+                                                   </script>
+                                                </c:forEach>
+                                                </span>
+                                                </p>
 
                                         </div>
-
                                     </p>
                                 <div class="text-right" style="color: red; font-size: 1.5em; padding-right: 0.5em">
                                     $${item.price}

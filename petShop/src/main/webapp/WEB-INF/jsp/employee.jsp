@@ -76,7 +76,7 @@
                     <br>
 
                     <li >
-                        <button class="btn btn-block btn-primary " onclick="window.location='/admin/pets/add';" type="button" >
+                        <button class="btn btn-block btn-primary " onclick="window.location='/admin/employee/add';" type="button" >
                             <i class="fa fa-plus-circle"></i>
                             <span>Add employee</span>
                         </button>
@@ -118,7 +118,7 @@
                     <div class="col-xs-3">
                         <!----------- PRODUCT CARD ----------------->
                         <div class="card" >
-                            <a href="employee/employeeEdit?idedit=${item.idemployee}"  ><img class="card-img-top"   src="../../resources/static/img/bossImg/${item.idemployee}.jpg"  title="Supa Employee" style="height: 14em;width: 19.25em" ></a>
+                            <a href="employee/employeeEdit?idedit=${item.idemployee}"  ><img class="card-img-top"   src="../../resources/static/img/employee/${item.idemployee}.jpg"  title="Supa Employee" style="height: 14em;width: 19.25em" ></a>
                             <div class="card-body" >
                                 <div class="card-block text-center">
                                     <h3 class="card-title" >${item.lastname} ${item.firstname}</h3>
@@ -128,10 +128,41 @@
 
                                     <p style = "font-weight: bold">Gender: <span style = " float:right; font-weight: normal; font-size: medium; color: limegreen">${item.gender}</span></p>
                                     <p style = "font-weight: bold">Age: <span style = " float:right; font-weight: normal; font-size: medium; color: limegreen">${item.employeeage}</span></p>
-                                    <p style = "font-weight: bold">ID Branch: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen" >${item.idbranch}</span></p>
+                                    <p style = "font-weight: bold">Branch: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen" >
+                                        <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                                                <c:forEach items="${branchList}" var="branch">
+                                                   <script>
+                                                       if(${branch.idbranch} == ${item.idbranch})
+                                                       {
+                                                           document.write("${branch.branchname}")
+                                                       }
+                                                   </script>
+                                                </c:forEach>
+                                    </span></p>
                                     <p style = "font-weight: bold">Phone: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.phone}</span></p>
-                                    <p style = "font-weight: bold">ID job: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.idjob}</span></p>
-                                    <p style = "font-weight: bold">Status: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">${item.idstatus}</span></p>
+                                    <p style = "font-weight: bold">Job: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">
+                                        <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                                                <c:forEach items="${jobList}" var="job">
+                                                   <script>
+                                                       if(${job.idjob} == ${item.idjob})
+                                                       {
+                                                           document.write("${job.jobname}");
+                                                       }
+                                                   </script>
+                                                </c:forEach>
+                                    </span></p>
+                                    <p style = "font-weight: bold">Status: <span style = "float:right; font-weight: normal; font-size: medium; color: limegreen">
+                                        <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                                                <c:forEach items="${statusList}" var="status">
+                                                   <script>
+                                                       if(${status.idstatus} == ${item.idstatus})
+                                                       {
+                                                           document.write("${status.statusname}");
+
+                                                       }
+                                                   </script>
+                                                </c:forEach>
+                                    </span></p>
 
                                 </div>
 

@@ -50,6 +50,12 @@ public class Branch {
         this.address = address;
         this.city = city;
     }
+    public Branch(String idbranch, String branchname, String address, String city) {
+        this.idbranch = idbranch;
+        this.branchname = branchname;
+        this.address = address;
+        this.city = city;
+    }
 
     public Branch() {
     }

@@ -3,9 +3,11 @@ package app.controller;
 import app.entity.Boss;
 import app.entity.Kind;
 import app.entity.Login;
+import app.entity.Providers;
 import app.repository.BossRepository;
 import app.repository.KindRepository;
 import app.repository.LoginRepository;
+import app.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +33,8 @@ public class BossController {
     private LoginRepository loginRepository;
     @Autowired
     private KindRepository kindRepository;
+    @Autowired
+    private ProviderRepository providerRepository;
 
     @RequestMapping("/admin/pets")
     public String petsView(@CookieValue(value = "id", defaultValue = "0") String idCookie,
@@ -44,6 +48,8 @@ public class BossController {
         Login index = loginRepository.findById(idCookie).orElse(new Login());
         model.addAttribute("nameLogin", index.getName());
         model.addAttribute("bossList", bossList);
+        List<Providers> providersList = (List<Providers>) providerRepository.findAll();
+        model.addAttribute("providersList", providersList);
         return "pets";
     }
 
@@ -52,6 +58,8 @@ public class BossController {
     {
         List<Kind> kindList = (List<Kind>) kindRepository.findAll();
         model.addAttribute("kindList",kindList);
+        List<Providers> providersList = (List<Providers>) providerRepository.findAll();
+        model.addAttribute("providersList", providersList);
         return "add";
     }
 
@@ -64,10 +72,11 @@ public class BossController {
                              @RequestParam(value = "vaccine",defaultValue = "") String vaccine,
                              @RequestParam(value = "registered",defaultValue = "") String registered,
                              @RequestParam(value = "price",defaultValue = "") String price,
+                             @RequestParam(value = "idprovider", defaultValue = "") String idprovider,
                              @RequestParam(value = "file") MultipartFile file, Model model) throws IOException
     {
 
-        Boss boss = new Boss(kind,name,gender,age,character,vaccine,registered,  price );
+        Boss boss = new Boss(kind,name,gender,age,character,vaccine,registered,price, idprovider);
         bossRepository.save(boss);
         List<Boss> bossList = (List<Boss>) bossRepository.findAll();
         String lastBossID = String.valueOf(bossList.get(bossList.size() - 1).getIdboss());
@@ -102,6 +111,12 @@ public class BossController {
         model.addAttribute("boss",boss);
         List<Kind> kindList = (List<Kind>) kindRepository.findAll();
         model.addAttribute("kindList",kindList);
+        List<Providers> providersList = (List<Providers>) providerRepository.findAll();
+        model.addAttribute("providersList",providersList);
+        String kindname = kindRepository.findById(boss.getBosskind()).orElse(new Kind()).getName();
+        model.addAttribute("kindName",kindname);
+        String providername = providerRepository.findById(boss.getIdprovider()).orElse(new Providers()).getProvidername();
+        model.addAttribute("providerName",providername);
         return "petEdit";
     }
 
@@ -114,14 +129,14 @@ public class BossController {
                                  @RequestParam(value = "vaccine",defaultValue = "") String vaccine,
                                  @RequestParam(value = "registered",defaultValue = "") String registered,
                                  @RequestParam(value = "price",defaultValue = "") String price,
+                                 @RequestParam(value = "idprovider",defaultValue = "") String idprovider,
                                  @RequestParam(value = "file") MultipartFile file,
                                  @RequestParam(value = "idedit",defaultValue = "none") String id,
                                  Model model)
     {
 
-        Boss boss = new Boss(id,kind,name,gender,age,character,vaccine,registered,price);
+        Boss boss = new Boss(id,kind,name,gender,age,character,vaccine,registered,price, idprovider);
         bossRepository.save(boss);
-
         saveFileTo(file,id);
         return "editSuccess";
     }

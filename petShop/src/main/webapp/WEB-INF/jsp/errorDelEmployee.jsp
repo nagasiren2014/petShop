@@ -30,6 +30,7 @@
     <link href="../../resources/static/css/style-responsive.css" rel="stylesheet">
     <script src="../../resources/static/lib/chart-master/Chart.js"></script>
 
+
 </head>
 
 <body>
@@ -75,7 +76,7 @@
                 <li class="sub-menu">
 
 
-                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/pets';" type="button" >
+                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/employee';" type="button" >
                         <i class="fa fa-backward"></i>
                         <span>Back</span>
                     </button>

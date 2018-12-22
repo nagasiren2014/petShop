@@ -15,11 +15,14 @@
     <!-- Favicons -->
     <link href="../../resources/static/img/favicon.png" rel="icon">
     <link href="../../resources/static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <!-- Bootstrap core CSS -->
     <link href="../../resources/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
     <!--external css-->
     <link href="../../resources/static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="../../resources/static/css/style.css" rel="stylesheet">
+    <link href="../../resources/static/css/style.css?v=1.0" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" type="text/css" href="../../resources/static/lib/gritter/css/jquery.gritter.css" />
     <!-- Custom styles for this template -->
@@ -140,7 +143,7 @@
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#imgshow').attr('src', e.target.result);
-                }
+                };
                 reader.readAsDataURL(this.files[0]);
             }
         });

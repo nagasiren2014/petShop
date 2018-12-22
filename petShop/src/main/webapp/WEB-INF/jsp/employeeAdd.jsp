@@ -18,7 +18,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../../resources/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!--external css-->
     <link href="../../resources/static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -38,7 +38,7 @@
 <body>
 
 <section id="container">
-    <form action="/admin/pets/editSuccess?idedit=${boss.idboss}" enctype="multipart/form-data" method="post">
+    <form action="/admin/employee/addSuccess" enctype="multipart/form-data" method="post">
         <!-- **********************************************************************************************************************************************************
             TOP BAR CONTENT & NOTIFICATIONS
             *********************************************************************************************************************************************************** -->
@@ -77,7 +77,7 @@
                     <br>
                     <li class="sub-menu">
 
-                        <button class="btn btn-block btn-primary " onclick="window.location='/admin/pets';" type="button" >
+                        <button class="btn btn-block btn-primary " onclick="window.location='/admin/employee';" type="button" >
                             <i class="fa fa-remove"></i>
                             <span>Cancel</span>
                         </button>
@@ -95,139 +95,122 @@
         <section id="main-content" >
             <section class="wrapper">
                 <div class="col-sm-5 " style="margin-left: 5em">
-                    <h2 class="text-center">Your pet's information</h2>
-                    <div class="form-group" style="margin-top: 2em; font-size: larger">
-                        <label for="" style = "margin-top: 1em">Kind<br> <p style="color: red">
-                            ${kindName}
-                        </p></label>
-                        <span>
+                    <h2 class="text-center">Resume:</h2>
+            <div style="font-size: larger">
 
-                                           <div class="form-group" style="font-size: larger">
 
-                                                    <select class="form-control"  style="width: 50%" name="kind">
-                                                        <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-                                                                <c:forEach items="${kindList}" var="item">
-                                                                    <option selected value = ${item.idkind}>${item.name}</option>
-                                                                </c:forEach>
-                                                    </select>
-                                        </div>
+                <label  style = "margin-top: 1em">First name: <input type="text" class="form-control" name = "firstname" autofocus  ></label>
 
-                            </span>
+                <label  style = "margin-top: 1em">Last name: <input type="text" class="form-control" name = "lastname" ></label>
+                <br>
+                <!---------AGE----------->
+                <label  style = "margin-top: 1em">Age: <input type="text" class="form-control" name = "age" ></label>
+                <br>
+                <!-------------------------------------->
 
-                        <label for=""style = "margin-top: 1em">Gender <br> <p style="color: red"> ${boss.gender}</p></label>
-                        <span>
-                                  <div class="form-group" style="font-size: larger">
+                <!---------ADDRESS----------->
+                <label  style = "margin-top: 1em">Address: <input type="text" class="form-control" name = "address" ></label>
+                <br>
+                <!-------------------------------------->
 
+                <!---------PHONE----------->
+                <label style = "margin-top: 1em">Phone: <input type="text" class="form-control" name = "phone" ></label>
+                <br>
+                <!-------------------------------------->
+
+                <!---------DAY IN----------->
+                <label style = "margin-top: 1em">Day in:  </label>
+
+                <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="01-01-2014" class="input-append date dpYears" style="width:  40%">
+                    <input type="text" readonly=""  size="16" class="form-control" name = "dayin">
+                    <span class="input-group-btn add-on">
+                                            <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
+                                        </span>
+                </div>
+                <!-------------------------------------->
+
+
+
+                <!---------BIRTH DAY----------->
+                <label style = "margin-top: 1em">Birthday:  </label>
+                <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="01-01-2014" class="input-append date dpYears"style="width:  40%">
+                    <input type="text" readonly=""  size="16" class="form-control" name = "birthday">
+                    <span class="input-group-btn add-on">
+                                            <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
+                                        </span>
+                </div>
+
+                <br>
+
+                        <label style = "margin-top: 1em">Gender: </label>
                                                     <select class="form-control"  style="width: 50%" name="gender">
                                                         <option selected>Male</option>
                                                         <option selected>Female</option>
                                                     </select>
-                                        </div>
+                <br>
+                        <!------BRANCH------>
 
-                            </span>
-                        <label for=""style = "margin-top: 1em">Vaccine Up-to-Date <br> <p style="color: red">${boss.vaccine}</p></label>
-                        <span>
-                                  <div class="form-group" style="font-size: larger">
+                        <label style = "margin-top: 1em">Branch: </label>
 
-                                                    <select class="form-control"  style="width: 50%" name="vaccine" id="">
-                                                        <option selected>Yes</option>
-                                                        <option selected>No</option>
+                        <select class="form-control"  style="width: 50%" name="idbranch">
+                        <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                            <c:forEach items="${branchList}" var="item">
+                                <option selected value = ${item.idbranch}>${item.branchname}</option>
+                            </c:forEach>
+                        </select>
+            <br>
+                        <!------------------------------------>
 
-                                                    </select>
-                                        </div>
+                        <!------ID JOB--------->
+                        <label style = "margin-top: 1em">ID Job: </label>
 
-                            </span>
+                        <select class="form-control"  style="width: 50%" name="idjob">
+                                    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                            <c:forEach items="${jobList}" var="item">
+                                <option selected value = ${item.idjob}>${item.jobname}</option>
+                            </c:forEach>
+                        </select>
+<br>
+                        <!-------------------------------------->
 
-                        <label for=""style = "margin-top: 1em">Registered <br> <p style="color: red">${boss.registered}</p></label>
-                        <span>
-                                 <div class="form-group" style="font-size: larger">
+                        <!---------STATUS----------->
+                        <label style = "margin-top: 1em">Status: </label>
 
-                                                    <select class="form-control"  style="width: 50%" name="registered" id="">
-                                                        <option selected>Yes</option>
-                                                        <option selected>No</option>
-
-                                                    </select>
-                                        </div>
-
-                            </span>
-
-                        <label for=""style = "margin-top: 1em">Provider</label>
-                        <br><p style="color: red;">
-                   ${providerName}
-                    </p>
-                        <span>
-                                 <div class="form-group" style="font-size: larger">
-                                                    <select class="form-control"  style="width: 50%" name="idprovider" >
-                                                        <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-                                                                <c:forEach items="${providersList}" var="item">
-                                                                    <option selected value = ${item.idprovider}>${item.providername}</option>
-                                                                </c:forEach>
-                                                    </select>
-                                        </div>
-
-                            </span>
-
-                        <label for="" style = "margin-top: 1em">Name</label>
-                        <span>
-                                 <input type="text" name="nem" value="${boss.bossname}" class="form-control" placeholder="" aria-describedby="helpId">
-
-                            </span>
-
-
-
-                        <label for=""style = "margin-top: 1em">Character</label>
-                        <span>
-                                 <input type="text" name="character" value="${boss.bosscharacter}" class="form-control" placeholder="" aria-describedby="helpId">
-
-                            </span>
-
-
-                        <label for=""style = "margin-top: 1em">Age</label>
-                        <span>
-                                 <input type="text" name="age" class="form-control" value="${boss.bossage}" placeholder="" aria-describedby="helpId">
-
-                            </span>
-
-                        <label for=""style = "margin-top: 1em">Price</label>
-                        <span>
-                                 <input type="text" name="price" class="form-control" value="${boss.price}" placeholder="" aria-describedby="helpId">
-
-                            </span>
-                        <br>
-
+                        <select class="form-control"  style="width: 50%" name="idstatus">
+                            <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                            <c:forEach items="${statusList}" var="item">
+                                <option selected value = ${item.idstatus}>${item.statusname}</option>
+                            </c:forEach>
+                        </select>
+<br>
+                        <!-------------------------------------->
 
 
                         <button type="submit" class="btn btn-primary">SAVE</button>
 
-
-
                     </div>
                 </div>
-
-
                 <div class="col-sm-5" style="margin-left: 3em">
                     <div class="text-center">
-                    <h2 style="padding-top: 0.2em">Your pet's image:</h2>
-                    <!--------------------------IMG LOAD------------------>
-                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-new thumbnail" style="width: 300px; height: 250px;">
-                            <img src="../../resources/static/img/bossImg/${boss.idboss}.jpg" alt="" />
-                        </div>
-                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 300px; max-height: 250px; line-height: 20px;"></div>
-                        <div>
+                        <h2  style="padding-top: 0.2em">Employee Image:</h2>
+
+                        <!--------------------------IMG LOAD------------------>
+                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                            <div class="fileupload-new thumbnail" style="width: 300px; height: 250px;">
+                                <img src="../../resources/static/img/employee/${employee.idemployee}.jpg" alt="" />
+                            </div>
+                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 300px; max-height: 250px; line-height: 20px;"></div>
+                            <div>
                                                         <span class="btn btn-theme02 btn-file">
                                                           <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select image</span>
                                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
                                                         <input type="file" name = "file" class="default" />
                                                         </span>
+                            </div>
                         </div>
+                        <!------END IMG LOAD------------------------------>
                     </div>
-                    <!------END IMG LOAD------------------------------>
-                    </div>
-
-
                 </div>
-
 
             </section>
         </section>
@@ -255,8 +238,8 @@
 <script type="text/javascript" src="../../resources/static/lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
 <script src="../../resources/static/lib/advanced-form-components.js"></script>
 
-<script type="application/javascript">
 
+<script type="application/javascript">
 
     $('document').ready(function () {
         $("#imgload").change(function () {
@@ -269,6 +252,17 @@
             }
         });
     });
+
+    $(function () {
+        $('#birthdaypicker').datetimepicker();
+    });
+
+    $(function () {
+        $('#dayinpicker').datetimepicker();
+    });
+
+
+
 
     $(document).ready(function() {
         $("#date-popover").popover({

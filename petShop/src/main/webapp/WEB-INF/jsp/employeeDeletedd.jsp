@@ -30,6 +30,7 @@
     <link href="../../resources/static/css/style-responsive.css" rel="stylesheet">
     <script src="../../resources/static/lib/chart-master/Chart.js"></script>
 
+
 </head>
 
 <body>
@@ -73,9 +74,13 @@
                 <br>
                 <br>
                 <li class="sub-menu">
+                    <form class="form-group" method="post">
 
 
-                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/pets';" type="button" >
+
+                    </form>
+
+                    <button class="btn btn-block btn-primary " onclick="window.location='/admin/employee';" type="button" >
                         <i class="fa fa-backward"></i>
                         <span>Back</span>
                     </button>
@@ -92,8 +97,8 @@
     <section id="main-content" >
         <section class="wrapper">
             <div class="text-center">
-                <img class="animated bounce " src="../../resources/static/img/404.png" style="width: 300px;height:auto; padding-top: 3em" >
-                <h2 class="text-danger" >No item is checked !</h2>
+                <img class="animated bounce " src="../../resources/static/img/checkmark.gif" style="width: 400px;height:auto" >
+                <h2 >Deleted !</h2>
             </div>
 
         </section>
