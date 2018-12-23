@@ -33,8 +33,8 @@
 
 </head>
 
-<body>
-<form action="" method="post">
+<body >
+<form action="/admin/cities" method="post">
     <section id="container">
         <!-- **********************************************************************************************************************************************************
             TOP BAR CONTENT & NOTIFICATIONS
@@ -75,79 +75,13 @@
                     <br>
                     <br>
 
-
                     <li >
-                        <button class = "btn btn-block btn-primary" onclick="window.location='admin/pets';" type = button>
-                            <div class="text-left">
-                                <i class="fa fa-paw" aria-hidden="true" ></i>
-                                <span>Pets</span>
-                            </div>
-
+                        <button class="btn btn-block btn-primary "  type="button" data-toggle="modal" data-target="#modelId">
+                            <i class="fa fa-plus-circle"></i>
+                            <span>Add City</span>
                         </button>
                     </li>
 
-                    <li >
-                        <button class = "btn btn-block btn-primary" onclick="window.location='admin/kind';" type = "button">
-                            <div class="text-left">
-                            <i class = "fa fa-codepen"></i>
-                            <span>Pet's kind</span>
-                            </div>
-                            </button>
-                    </li>
-
-                    <li>
-                        <button class = "btn btn-block btn-primary" onclick="window.location='admin/employee';" type = button>
-                            <div class="text-left">
-                            <i class="fa fa-users" ></i>
-                            <span>Employee</span>
-                            </div>
-                            </button>
-                    </li>
-
-                    <li>
-                        <button class = "btn btn-block btn-primary" onclick="window.location='admin/branch';" type = button>
-                            <div class="text-left">
-                               <i class="fa fa-building-o"></i>
-                            <span>Branch</span>
-                            </div>
-                            </button>
-                    </li>
-
-                    <li>
-                        <button class = "btn btn-block btn-primary" onclick="window.location='admin/providers';" type = button>
-                            <div class="text-left">
-                                <i class="fa fa-product-hunt"></i>
-                                <span>Providers</span>
-                            </div>
-                        </button>
-                    </li>
-
-                    <li>
-                    <button class = "btn btn-block btn-primary" onclick="window.location='admin/cities';" type = button>
-                        <div class="text-left">
-                            <i class="fa fa-building-o"></i>
-                            <span>Cities</span>
-                        </div>
-                    </button>
-                    </li>
-
-                    <li>
-                        <button class = "btn btn-block btn-primary" onclick="window.location='admin/customers';" type = button>
-                            <div class="text-left">
-                                <i class="fa fa-building-o"></i>
-                                <span>Customers</span>
-                            </div>
-                        </button>
-                    </li>
-
-                    <li>
-                        <button class = "btn btn-block btn-primary" onclick="window.location='admin/invoices';" type = button>
-                            <div class="text-left">
-                                <i class="fa fa-building-o"></i>
-                                <span>Invoices</span>
-                            </div>
-                        </button>
-                    </li>
 
                 </ul>
                 <!-- sidebar menu end-->
@@ -160,7 +94,79 @@
         <!--main content start-->
 
         <section id="main-content" >
-            <section class="wrapper">
+            <section class="wrapper" >
+                <h1 class="text-center">City List</h1>
+                <br>
+                <table class="table table-dark  " style="font-size: large; ">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                    <c:forEach items="${cityList}" var="item">
+                        <tr>
+                            <th scope="row">${item.idcity}</th>
+                            <td>${item.cityname}</td>
+                            <td>
+                                <button class="btn btn-primary "  type="button"  onclick="window.location = 'cities/cityEdit?idEdit=${item.idcity}'">
+                                    Edit
+                                </button>
+
+                            </td>
+                            <td>
+                                <button class="btn btn-primary "  type="button" data-toggle="modal" data-target="#${item.idcity}">
+                                    Delete
+                                </button>
+                                <!----modal Del-->
+                                <div class="modal fade" id="${item.idcity}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header text-center " style="background-color: #d9534f">
+                                                <h3 class="modal-title">Are you sure ?</h3>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel  <i class="fa fa-heart"></i></button>
+                                                <button type="button" class="btn btn-danger" onclick="window.location = 'cities?idDel=${item.idcity}'">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---end modal Del-->
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+
+
+                <!----modal-->
+                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center " style="background-color: #d9534f">
+                                <h3 class="modal-title">Fill your city's information !</h3>
+                            </div>
+                            <div class="modal-body">
+                                <label class="text-left" style="font-size: large">Name: </label>
+                                <div ><input  class="form-control" type="text" placeholder="Name" name = "cityname" style="font-size: large" autofocus></div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel  <i class="fa fa-heart"></i></button>
+                                    <button type="submit" class="btn btn-danger">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!---end modal-->
+
+
 
             </section>
         </section>

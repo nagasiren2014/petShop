@@ -28,6 +28,8 @@ public class BranchController {
     {
         Branch branch = branchRepository.findById(idEdit).orElse(new Branch());
         model.addAttribute("branchEdit",branch);
+        List<City> cityList = (List<City>) cityRepository.findAll();
+        model.addAttribute("cityList",cityList);
         return "branchEdit";
     }
 
@@ -42,7 +44,7 @@ public class BranchController {
 
             Model model)
     {
-        if(!branchname.equals("") && !address.equals("") && !city.equals("")) {
+        if(!branchname.equals("") && !address.equals("") && !city.equals("") && idEdit.equals("")) {
             Branch branch = new Branch(branchname,address,city);
             branchRepository.save(branch);
         }
@@ -60,7 +62,7 @@ public class BranchController {
 
         if(!idEdit.equals("") && !branchname.equals("") && !address.equals("") && !city.equals(""))
         {
-            Branch branch = new Branch(idbranch,branchname,address,city);
+            Branch branch = new Branch(idEdit,branchname,address,city);
             branchRepository.save(branch);
         }
         List<Branch> branchList = (List<Branch>) branchRepository.findAll();
