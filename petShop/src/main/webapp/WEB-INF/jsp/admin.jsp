@@ -125,7 +125,7 @@
                     <li>
                     <button class = "btn btn-block btn-primary" onclick="window.location='admin/cities';" type = button>
                         <div class="text-left">
-                            <i class="fa fa-building-o"></i>
+                            <i class="fa fa-sitemap"></i>
                             <span>Cities</span>
                         </div>
                     </button>
@@ -134,7 +134,7 @@
                     <li>
                         <button class = "btn btn-block btn-primary" onclick="window.location='admin/customers';" type = button>
                             <div class="text-left">
-                                <i class="fa fa-building-o"></i>
+                                <i class="fa fa-user"></i>
                                 <span>Customers</span>
                             </div>
                         </button>
@@ -143,7 +143,7 @@
                     <li>
                         <button class = "btn btn-block btn-primary" onclick="window.location='admin/invoices';" type = button>
                             <div class="text-left">
-                                <i class="fa fa-building-o"></i>
+                                <i class="fa fa-barcode"></i>
                                 <span>Invoices</span>
                             </div>
                         </button>
@@ -160,9 +160,9 @@
         <!--main content start-->
 
         <section id="main-content" >
-            <section class="wrapper">
-
-            </section>
+            <div class="wrapper"style="padding-top: 0%; padding-left: 0%">
+                <img src = "../../resources/static/img/dasboard.jpg">;
+            </div>
         </section>
         <!--main content end-->
         <!--main content end-->

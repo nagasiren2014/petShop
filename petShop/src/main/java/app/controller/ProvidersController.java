@@ -22,6 +22,12 @@ public class ProvidersController {
     private ProviderRepository providerRepository;
 
 
+    @RequestMapping(value = "/admin/invoices")
+    public String invoiceView()
+    {
+        return "invoices";
+    }
+
     @RequestMapping(value = "/admin/providers/providerEdit")
     public String editKind(@RequestParam(value = "idEdit") String idEdit, Model model)
     {
